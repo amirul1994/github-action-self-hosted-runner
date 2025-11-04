@@ -10,3 +10,15 @@ jobs:
         run: |
           echo "Running on: $HOSTNAME"
           echo "Working Directory: $PWD"
+  
+  osinfo:
+    runs-on: self-hosted
+    steps:
+      - uses:  actions/checkout@v2
+      - name: find os info
+        run: |
+          echo "$lscpu"
+          sleep 30
+          echo "$(cat /etc/fstab)"
+          sleep 30
+          echo "$(df -h /)"
