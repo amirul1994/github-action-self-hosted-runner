@@ -1,0 +1,12 @@
+name: Custom runner workflow
+on: push
+
+jobs:
+  build: 
+    runs-on: self-hosted
+    steps:
+      - uses: action/checkout@v2
+      - name: Test Runner
+        run: |
+          echo "Running on: $HOSTNAME"
+          echo "Working Directory: $PWD"
